@@ -1,12 +1,16 @@
 # (4) Main Menu and Application Entry Point
-from auth import signup, login
+from auth import *
 from operations import check_balance, deposit, withdraw, view_transactions
 
 
 def main():
     print("Welcome to the Banking System")
     while True:
-        choice = input("1.Signup  2.Login  3.Exit\nChoose: ")
+        print("1. Signup")
+        print("2. Login")
+        print("3. Forgot Password")
+        print("4. Exit")
+        choice = input("Choose an option: ")
         if choice == "1":
             signup()
         elif choice == "2":
@@ -27,9 +31,11 @@ def main():
                         break
                     else:
                         print("Invalid option.")
-        elif choice == "3":
+        elif choice == '3':
+            forgot_password()
+        elif choice == '4':
+            print("Goodbye!")
             break
         else:
-            print("Invalid option.")
-
+            print("Invalid choice. Try again.")
 main()
