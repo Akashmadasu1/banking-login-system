@@ -19,7 +19,7 @@ def withdraw(user_id):
     if amount > balance:
         print("Insufficient balance!")
     else:
-        cursor.execute("UPDATE users SET balance = balance - %s WHERE id=%s", (amount, user_id))
+        cursor.execute("UPDATE users SET balance = balance - %s WHERE id= %s", (amount, user_id))
         cursor.execute("INSERT INTO transactions (user_id, type, amount) VALUES (%s, %s, %s)", (user_id, "Withdraw", amount))
         conn.commit()
         print("Withdrawal successful!")
